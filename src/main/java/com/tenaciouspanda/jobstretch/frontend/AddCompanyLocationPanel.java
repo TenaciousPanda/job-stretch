@@ -7,16 +7,10 @@ package com.tenaciouspanda.jobstretch.frontend;
 
 import com.tenaciouspanda.jobstretch.Session;
 import com.tenaciouspanda.jobstretch.database.Business;
-import java.awt.Font;
-import java.awt.FontFormatException;
-import java.io.IOException;
-import java.io.InputStream;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 
 /**
- *
+ * 
  * @author Simon
  */
 public class AddCompanyLocationPanel extends CardSubpanel {
@@ -37,6 +31,9 @@ public class AddCompanyLocationPanel extends CardSubpanel {
         cityLabel.setFont(view.getFont(24));
         stateLabel.setFont(view.getFont(24));
         zipCodeLabel.setFont(view.getFont(24));
+        
+        if(session.getSelected() != null && session.getSelected() instanceof Business)
+            businessNameLbl.setText(((Business)session.getSelected()).getName());
 
     }
 
@@ -87,7 +84,7 @@ public class AddCompanyLocationPanel extends CardSubpanel {
         businessNameLbl.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         businessNameLbl.setForeground(new java.awt.Color(255, 153, 51));
         businessNameLbl.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        businessNameLbl.setText("CompanyName");
+        businessNameLbl.setText("Company");
         add(businessNameLbl);
         businessNameLbl.setBounds(310, 90, 250, 60);
 

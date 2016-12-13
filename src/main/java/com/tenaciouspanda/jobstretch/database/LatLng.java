@@ -6,7 +6,7 @@
 package com.tenaciouspanda.jobstretch.database;
 
 /**
- *
+ * Stores latitude and logitude coordinate
  * @author Simon
  */
 public class LatLng {

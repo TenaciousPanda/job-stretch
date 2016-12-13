@@ -9,10 +9,16 @@ import com.tenaciouspanda.jobstretch.frontend.ViewManager;
 
 
 /**
- *
+ * Runner Class for Job Stretch
  * @author Simon
  */
  public class JobStretch {
+     
+    /**
+     * Start the application
+     * 
+     * @param args not used
+     */
     public static void main(String[] args){  
         //Do any setup work here
         ViewManager programViewManager = new ViewManager();

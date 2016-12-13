@@ -6,9 +6,14 @@
 package com.tenaciouspanda.jobstretch;
 
 /**
- *
+ * Implement this interface to receive notifications when a MapPanel 
+ * is fully initialized
  * @author Simon
  */
 public interface MapPanelInitializedListener {
+    
+    /**
+     * Fired when map is initialized
+     */
     public void onInitialized();
 }

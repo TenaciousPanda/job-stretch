@@ -16,8 +16,13 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 
 
+/**
+ * Manage the Frontend panels for the user interface
+ * 
+ */
 public class ViewManager extends JFrame {
 
     private Session session;
@@ -47,6 +52,9 @@ public class ViewManager extends JFrame {
         this.setTitle("Job Stretch");
     }
 
+    /**
+     * Setup each panel for the user interface
+     */
     private void setup(){
         DashboardPanel dashboard = new DashboardPanel(session, this);
         LoginPanel login = new LoginPanel(session, this);
@@ -93,11 +101,22 @@ public class ViewManager extends JFrame {
         
     }
     
+    /**
+     * Get the current font for the application
+     * @param size size of the font
+     * @return the current font for the application
+     */
     public Font getFont(float size){
       return font.deriveFont(size);
     };
     
+    /**
+     * Set the statusbar 
+     * @param status 
+     */
     void setStatus(String status){
+        // show message to user when events happen
+        JOptionPane.showMessageDialog(null, status);
         statusbar.setText(status);
     }
     

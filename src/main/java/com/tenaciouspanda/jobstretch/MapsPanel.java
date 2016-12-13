@@ -20,7 +20,8 @@ import javafx.application.Platform;
 import javafx.embed.swing.JFXPanel;
 import javafx.scene.Scene;
 /**
- *
+ * JPanel that shows a Google map
+ * 
  * @author Simon
  */
 public class MapsPanel extends JFXPanel implements MapComponentInitializedListener {
@@ -34,6 +35,9 @@ public class MapsPanel extends JFXPanel implements MapComponentInitializedListen
     
     LatLongBounds bounds = null;
     
+    /**
+     * Create a new MapPanel
+     */
     public MapsPanel(){
         super();
         
@@ -50,24 +54,41 @@ public class MapsPanel extends JFXPanel implements MapComponentInitializedListen
         });
     }
     
+    /**
+     * Mark the Panel as initialized.
+     * 
+     * @param state true if initialized
+     */
     private void setInitialized(boolean state) {
         if(state == true && isInitialized == false){
             fireListeners();
         }
         isInitialized = state;
     }
+    /**
+     * Add a listener to the panel.  The listener fires when the
+     * map has loaded.  If the map is already loaded, the listener fires
+     * immediately
+     * @param l 
+     */
     public void addListener(MapPanelInitializedListener l){
         initListeners.add(l);
         if(isInitialized)
             l.onInitialized();
     }
     
+    /**
+     * Call each listener's callback
+     */
     private void fireListeners(){
         for(MapPanelInitializedListener l : initListeners){
             l.onInitialized();
         }
     }
 
+    /**
+     * Create map and center view
+     */
     @Override
     public void mapInitialized() {
         //Set the initial properties of the map.
@@ -87,6 +108,13 @@ public class MapsPanel extends JFXPanel implements MapComponentInitializedListen
         setInitialized(true);
     }
     
+    /**
+     * Add a marker to the map
+     * If the map is not initialized yet, no marker is added.
+     * @param lat - latitude of marker
+     * @param lon longitude of marker
+     * @param name name of marker for label
+     */
     public void addMarker(final double lat, final double lon, final String name){
         if(!isInitialized){
             Logger.getLogger(MapsPanel.class.getName()).log(Level.SEVERE, null, "map not initialized!!");
@@ -114,6 +142,10 @@ public class MapsPanel extends JFXPanel implements MapComponentInitializedListen
             }
         });
     }
+    
+    /**
+     * Clear all markers from the map.
+     */
     public void clear(){
         
         if(!isInitialized){
@@ -130,6 +162,11 @@ public class MapsPanel extends JFXPanel implements MapComponentInitializedListen
             }
         });
     }
+    
+    /**
+     * Extend the current view bounds to include loc.
+     * @param loc - latitude and longitude of coordinate to add.
+     */
     private void extendBounds(LatLong loc){
         if(bounds == null){
             bounds = new LatLongBounds(loc, loc);

@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.tenaciouspanda.jobstretch;
 
 import com.google.maps.GeoApiContext;
@@ -13,18 +8,27 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
- *
+ * Provides Geolocation Services.
+ * 
  * @author Simon
  */
 public class Geocoder {
     private String api_key = "AIzaSyBIG3n-yCC830m-wQ5fkvWfZOYhDP8Ah58";
     private GeoApiContext context;
     
-    
+    /**
+     * Create a new Geocoder
+     */
     public Geocoder(){
         context = new GeoApiContext().setApiKey(api_key);
     }
     
+    /**
+     * convert a string into a latitude and logitude
+     * null if location not found
+     * @param location - string location
+     * @return LatLng of location
+     */
     public LatLng geocode(String location) {
         LatLng result = null;
         if(context == null)
