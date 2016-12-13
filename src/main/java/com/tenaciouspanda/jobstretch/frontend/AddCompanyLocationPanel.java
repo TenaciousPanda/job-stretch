@@ -37,6 +37,9 @@ public class AddCompanyLocationPanel extends CardSubpanel {
         cityLabel.setFont(view.getFont(24));
         stateLabel.setFont(view.getFont(24));
         zipCodeLabel.setFont(view.getFont(24));
+        
+        if(session.getSelected() != null && session.getSelected() instanceof Business)
+            businessNameLbl.setText(((Business)session.getSelected()).getName());
 
     }
 
@@ -87,7 +90,7 @@ public class AddCompanyLocationPanel extends CardSubpanel {
         businessNameLbl.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         businessNameLbl.setForeground(new java.awt.Color(255, 153, 51));
         businessNameLbl.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        businessNameLbl.setText("CompanyName");
+        businessNameLbl.setText("Company");
         add(businessNameLbl);
         businessNameLbl.setBounds(310, 90, 250, 60);
 

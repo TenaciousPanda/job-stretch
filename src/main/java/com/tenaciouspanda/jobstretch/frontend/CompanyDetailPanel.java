@@ -36,6 +36,7 @@ public class CompanyDetailPanel extends CardSubpanel {
         jPanel2.setBackground(new Color(0,0,0,50));
         addLocationBtn.setIcon(new ImageIcon(this.getClass().getResource("/addLocationButton.png")));
 
+        
         Font sizedFont = view.getFont(32);
         Font sizedFont2 = view.getFont(24);
         Font sizedFont3 = view.getFont(18);
@@ -85,6 +86,7 @@ public class CompanyDetailPanel extends CardSubpanel {
         jLabel1 = new javax.swing.JLabel();
         backButton = new javax.swing.JButton();
         summaryLabel = new javax.swing.JLabel();
+        addLocationBtn = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         summaryTextBox = new javax.swing.JTextArea();
         jPanel2 = new javax.swing.JPanel();
@@ -97,7 +99,6 @@ public class CompanyDetailPanel extends CardSubpanel {
         jScrollPane2 = new javax.swing.JScrollPane();
         locationsListBox = new javax.swing.JList<BusLocations>();
         jLabel2 = new javax.swing.JLabel();
-        addLocationBtn = new javax.swing.JButton();
         businessNameLbl = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
 
@@ -119,7 +120,7 @@ public class CompanyDetailPanel extends CardSubpanel {
             }
         });
         add(backButton);
-        backButton.setBounds(10, 14, 130, 30);
+        backButton.setBounds(20, 10, 130, 30);
 
         summaryLabel.setFont(new java.awt.Font("Oswald", 0, 24)); // NOI18N
         summaryLabel.setForeground(new java.awt.Color(255, 255, 255));
@@ -127,6 +128,17 @@ public class CompanyDetailPanel extends CardSubpanel {
         summaryLabel.setText("Summary");
         add(summaryLabel);
         summaryLabel.setBounds(130, 70, 130, 30);
+
+        addLocationBtn.setBorderPainted(false);
+        addLocationBtn.setContentAreaFilled(false);
+        addLocationBtn.setFocusPainted(false);
+        addLocationBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addLocationBtnActionPerformed(evt);
+            }
+        });
+        add(addLocationBtn);
+        addLocationBtn.setBounds(630, 410, 176, 36);
 
         summaryTextBox.setEditable(false);
         summaryTextBox.setBackground(new java.awt.Color(0, 0, 0));
@@ -173,43 +185,29 @@ public class CompanyDetailPanel extends CardSubpanel {
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Locations");
 
-        addLocationBtn.setBorderPainted(false);
-        addLocationBtn.setContentAreaFilled(false);
-        addLocationBtn.setFocusPainted(false);
-        addLocationBtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                addLocationBtnActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(27, 27, 27)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 370, Short.MAX_VALUE)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(27, 27, 27)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 370, Short.MAX_VALUE)
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(websiteLabel)
-                                .addGap(18, 18, 18)
-                                .addComponent(websiteLbl, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(foundedLabel)
-                                .addGap(18, 18, 18)
-                                .addComponent(foundedLbl, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(jLabel2)
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(industryLabel)
-                                .addGap(17, 17, 17)
-                                .addComponent(industryLbl, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(addLocationBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(websiteLabel)
+                        .addGap(18, 18, 18)
+                        .addComponent(websiteLbl, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(foundedLabel)
+                        .addGap(18, 18, 18)
+                        .addComponent(foundedLbl, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(jLabel2)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(industryLabel)
+                        .addGap(17, 17, 17)
+                        .addComponent(industryLbl, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
@@ -222,10 +220,8 @@ public class CompanyDetailPanel extends CardSubpanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(foundedLabel)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(foundedLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(3, 3, 3)))
-                .addGap(11, 11, 11)
+                    .addComponent(foundedLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(14, 14, 14)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(websiteLabel)
                     .addComponent(websiteLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -233,20 +229,18 @@ public class CompanyDetailPanel extends CardSubpanel {
                 .addComponent(jLabel2)
                 .addGap(3, 3, 3)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(addLocationBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(12, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         add(jPanel2);
-        jPanel2.setBounds(400, 110, 407, 341);
+        jPanel2.setBounds(400, 110, 407, 290);
 
         businessNameLbl.setFont(new java.awt.Font("Oswald", 0, 24)); // NOI18N
         businessNameLbl.setForeground(new java.awt.Color(255, 255, 255));
         businessNameLbl.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         businessNameLbl.setText("CompanyName");
         add(businessNameLbl);
-        businessNameLbl.setBounds(450, 70, 300, 36);
+        businessNameLbl.setBounds(450, 70, 300, 32);
 
         jLabel5.setIcon(new ImageIcon(this.getClass().getResource("/bg.png")));
         jLabel5.setAlignmentY(0.0F);
