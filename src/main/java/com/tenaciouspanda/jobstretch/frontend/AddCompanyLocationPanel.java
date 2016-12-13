@@ -7,16 +7,10 @@ package com.tenaciouspanda.jobstretch.frontend;
 
 import com.tenaciouspanda.jobstretch.Session;
 import com.tenaciouspanda.jobstretch.database.Business;
-import java.awt.Font;
-import java.awt.FontFormatException;
-import java.io.IOException;
-import java.io.InputStream;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 
 /**
- *
+ * 
  * @author Simon
  */
 public class AddCompanyLocationPanel extends CardSubpanel {
